@@ -40,13 +40,19 @@ public class MainAppLauncher extends Application {
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader()
                     .getResource("MainApp.fxml")));
+
             FXMLLoader loader = new FXMLLoader();
+
             URL location = getClass().getClassLoader()
                     .getResource("MainApp.fxml");
             loader.setLocation(location);
+            System.out.println("------");
             view = loader.load();
+            System.out.println("------");
+
             MainApp mainApp = loader.getController();
-            mainApp.setInstanceTimer(instancetimer);
+
+//            mainApp.setInstanceTimer(instancetimer);
             primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Tri");
             primaryStage.show();

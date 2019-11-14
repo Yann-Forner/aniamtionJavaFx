@@ -23,26 +23,51 @@ public class MainApp implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.instance = new Instancetimer(new ArrayAnimated());
         render();
+
     }
 
 
 
     public void setInstanceTimer(Instancetimer timer){
         this.instance = timer;
+        System.out.println("TEST");
+        render();
     }
 
 
     private void render(){
-        canvas.setWidth(600);
-        canvas.setHeight(400);
+        canvas.setWidth(1000);
+        canvas.setHeight(500);
 
         GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
 
+
         PixelWriter pixelWriter = graphicsContext.getPixelWriter();
 
+        try {
+            for (int i = 0; i < canvas.getWidth() ; i+=5) {
+                rectTracer(pixelWriter,i);
+            }
+        }catch (NullPointerException e){
+            System.out.println("RATé");
+        }
 
 
 
+
+    }
+
+    private void rectTracer(PixelWriter pixelWriter,int x){
+        for (int y =(int) this.canvas.getHeight(); y >=(int) this.canvas.getHeight() - this.instance.getMyArray().get(x/5) ; y--) {
+            pixelWriter.setColor(x,y,Color.BLACK);
+            pixelWriter.setColor(x+4,y,Color.BLACK);
+            if(y==(int) this.canvas.getHeight() - this.instance.getMyArray().get(x/5)){
+                pixelWriter.setColor(x+1,y,Color.BLACK);
+                pixelWriter.setColor(x+2,y,Color.BLACK);
+                pixelWriter.setColor(x+3,y,Color.BLACK);
+            }
+        }
     }
 }
