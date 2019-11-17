@@ -6,19 +6,21 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.util.Duration;
+import viewer.MainApp;
 
 
 public class Instancetimer {
 
-    private static final int PERIOD_IN_MILLISECONDS = 100;
+    private static final int PERIOD_IN_MILLISECONDS = 500;
     private Timeline timeline;
 
     private ArrayAnimated myArray;
 
+
     public Instancetimer(ArrayAnimated myArray) {
         this.myArray = myArray;
         updateTimeline();
-
+        play();
     }
 
     private void updateTimeline() {
@@ -31,6 +33,7 @@ public class Instancetimer {
 
     private void next() {
         this.myArray.updateToNextGeneration();
+
     }
 
     public ArrayAnimated getMyArray() {

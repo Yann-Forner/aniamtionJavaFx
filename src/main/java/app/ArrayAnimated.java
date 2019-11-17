@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class ArrayAnimated  {
     private ArrayList<Integer> myList = new ArrayList<>(0);
-    private int position=0;
+    private Integer position;
 
     public ArrayAnimated() {
         for (int i = 0; i <200 ; i++) {
@@ -17,7 +17,15 @@ public class ArrayAnimated  {
         return this.myList.get(index);
     }
     public void updateToNextGeneration(){
+        if (position == null){
+            position=0;
+        }
+        ++position;
 
+    }
+
+    public Integer getPosition() {
+        return position;
     }
 
     @Override

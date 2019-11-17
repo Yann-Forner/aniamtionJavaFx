@@ -28,11 +28,12 @@ public class MainApp implements Initializable {
 
     }
 
-
+    public void refresh(){
+        render();
+    }
 
     public void setInstanceTimer(Instancetimer timer){
         this.instance = timer;
-        System.out.println("TEST");
         render();
     }
 
@@ -63,6 +64,12 @@ public class MainApp implements Initializable {
         for (int y =(int) this.canvas.getHeight(); y >=(int) this.canvas.getHeight() - this.instance.getMyArray().get(x/5) ; y--) {
             pixelWriter.setColor(x,y,Color.BLACK);
             pixelWriter.setColor(x+4,y,Color.BLACK);
+            if( this.instance.getMyArray().getPosition()!=null && x/5 == this.instance.getMyArray().getPosition()){
+                System.out.println(this.instance.getMyArray().getPosition());
+                pixelWriter.setColor(x+1,y,Color.RED);
+                pixelWriter.setColor(x+2,y,Color.RED);
+                pixelWriter.setColor(x+3,y,Color.RED);
+            }
             if(y==(int) this.canvas.getHeight() - this.instance.getMyArray().get(x/5)){
                 pixelWriter.setColor(x+1,y,Color.BLACK);
                 pixelWriter.setColor(x+2,y,Color.BLACK);
