@@ -51,7 +51,7 @@ public class MainAppLauncher extends Application {
             System.out.println("------");
 
             MainApp mainApp = loader.getController();
-
+//            this.instancetimer.setM(mainApp);
 //            mainApp.setInstanceTimer(instancetimer);
             primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Tri");

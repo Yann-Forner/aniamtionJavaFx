@@ -24,6 +24,7 @@ public class MainApp implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.instance = new Instancetimer(new ArrayAnimated());
+        this.instance.setMainApp(this);
         render();
 
     }
@@ -38,7 +39,7 @@ public class MainApp implements Initializable {
     }
 
 
-    private void render(){
+    public void render(){
         canvas.setWidth(1000);
         canvas.setHeight(500);
 
