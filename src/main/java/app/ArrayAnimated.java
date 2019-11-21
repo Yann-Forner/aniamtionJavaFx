@@ -19,13 +19,34 @@ public class ArrayAnimated  {
     public void updateToNextGeneration(){
         if (position == null){
             position=0;
+        }else{
+            int temp = position;
+            for (int i = position; i >=0; i--) {
+                if(this.myList.get(i)>=this.myList.get(position)) {
+//                    System.out.println(this.myList.get(temp)+"<="+this.myList.get(i)+"<="+this.myList.get(position));
+                    temp=i;
+                }
+            }
+            this.shift(position,temp);
         }
         ++position;
+    }
+
+    public void shift(int cible, int position){
+        if(cible!=position){
+            Integer temp = this.myList.get(cible);
+            this.myList.remove(cible);
+            this.myList.add(position, temp);
+        }
 
     }
 
     public Integer getPosition() {
         return position;
+    }
+
+    public void switchItems(int index1, int index2){
+        Integer temp= this.myList.get(index1);
     }
 
     @Override

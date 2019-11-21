@@ -49,6 +49,11 @@ public class MainApp implements Initializable {
         PixelWriter pixelWriter = graphicsContext.getPixelWriter();
 
         try {
+            for (int i = 0; i < canvas.getWidth() ; i++) {
+                for (int j = 0; j <  canvas.getHeight(); j++) {
+                    pixelWriter.setColor(i,j,Color.WHITE);
+                }
+            }
             for (int i = 0; i < canvas.getWidth() ; i+=5) {
                 rectTracer(pixelWriter,i);
             }
@@ -66,10 +71,9 @@ public class MainApp implements Initializable {
             pixelWriter.setColor(x,y,Color.BLACK);
             pixelWriter.setColor(x+4,y,Color.BLACK);
             if( this.instance.getMyArray().getPosition()!=null && x/5 == this.instance.getMyArray().getPosition()){
-                System.out.println(this.instance.getMyArray().getPosition());
-                pixelWriter.setColor(x+1,y,Color.RED);
-                pixelWriter.setColor(x+2,y,Color.RED);
-                pixelWriter.setColor(x+3,y,Color.RED);
+                pixelWriter.setColor(x+1,y,Color.GREEN);
+                pixelWriter.setColor(x+2,y,Color.GREEN);
+                pixelWriter.setColor(x+3,y,Color.GREEN);
             }
             if(y==(int) this.canvas.getHeight() - this.instance.getMyArray().get(x/5)){
                 pixelWriter.setColor(x+1,y,Color.BLACK);

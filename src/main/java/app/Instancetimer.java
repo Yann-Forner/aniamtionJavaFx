@@ -11,7 +11,7 @@ import viewer.MainApp;
 
 public class Instancetimer {
 
-    private static final int PERIOD_IN_MILLISECONDS = 500;
+    private static final int PERIOD_IN_MILLISECONDS = 250;
     private Timeline timeline;
     private ArrayAnimated myArray;
     private MainApp mainApp;
@@ -39,7 +39,6 @@ public class Instancetimer {
     private void next() {
         this.myArray.updateToNextGeneration();
         if(this.mainApp!=null)this.mainApp.refresh();
-        System.out.println("TEST");
     }
 
 
