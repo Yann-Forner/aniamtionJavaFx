@@ -8,6 +8,7 @@ public class ArrayAnimated  {
     private Integer position;
 
     public ArrayAnimated() {
+        System.out.println("création d'un array");
         for (int i = 0; i <200 ; i++) {
            myList.add(new Random().nextInt(450));
         }

@@ -20,11 +20,11 @@ public class Instancetimer {
     public Instancetimer(ArrayAnimated myArray) {
         this.myArray = myArray;
         updateTimeline();
-        play();
     }
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
+        this.play();
     }
 
     private void updateTimeline() {
@@ -37,10 +37,16 @@ public class Instancetimer {
     }
 
     private void next() {
+        System.out.println("Appel de next()");
+
         this.myArray.updateToNextGeneration();
-        if(this.mainApp!=null)this.mainApp.refresh();
+        this.mainApp.refresh();
+
     }
 
+    public MainApp getMainApp() {
+        return mainApp;
+    }
 
     public ArrayAnimated getMyArray() {
         return myArray;

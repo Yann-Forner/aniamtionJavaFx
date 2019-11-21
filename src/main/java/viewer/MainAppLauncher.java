@@ -33,11 +33,6 @@ public class MainAppLauncher extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         try {
-//            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-            //            stage.setWidth(primaryScreenBounds.getWidth());
-//            stage.setHeight(primaryScreenBounds.getHeight());
-
-
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader()
                     .getResource("MainApp.fxml")));
 
@@ -46,13 +41,10 @@ public class MainAppLauncher extends Application {
             URL location = getClass().getClassLoader()
                     .getResource("MainApp.fxml");
             loader.setLocation(location);
-            System.out.println("------");
             view = loader.load();
-            System.out.println("------");
 
             MainApp mainApp = loader.getController();
-//            this.instancetimer.setM(mainApp);
-//            mainApp.setInstanceTimer(instancetimer);
+            mainApp.setInstance(this.instancetimer);
             primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Tri");
             primaryStage.show();
