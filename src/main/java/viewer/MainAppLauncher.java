@@ -17,27 +17,17 @@ public class MainAppLauncher extends Application {
 
     private static final String VIEW_RESOURCE_PATH = "MainApp.fxml";
 
-    private Instancetimer instancetimer;
-
     private Parent view;
 
-    public MainAppLauncher() { this(new Instancetimer(new ArrayAnimated())); }
 
-    private MainAppLauncher(Instancetimer instancetimer) {
-        this.instancetimer = instancetimer;
-    }
     public static void main(String[] args) {
         Application.launch(MainAppLauncher.class, args);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        System.out.println("start");
         try {
-//            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-            //            stage.setWidth(primaryScreenBounds.getWidth());
-//            stage.setHeight(primaryScreenBounds.getHeight());
-
-
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader()
                     .getResource("MainApp.fxml")));
 
@@ -46,13 +36,9 @@ public class MainAppLauncher extends Application {
             URL location = getClass().getClassLoader()
                     .getResource("MainApp.fxml");
             loader.setLocation(location);
-            System.out.println("------");
             view = loader.load();
-            System.out.println("------");
 
             MainApp mainApp = loader.getController();
-//            this.instancetimer.setM(mainApp);
-//            mainApp.setInstanceTimer(instancetimer);
             primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Tri");
             primaryStage.show();
